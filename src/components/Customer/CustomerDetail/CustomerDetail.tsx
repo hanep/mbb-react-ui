@@ -2,13 +2,13 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 export const CustomerDetail = () => {
-  let params = useParams();
+  const params = useParams();
   return (
     <>
-      Customer Detail
-      <br />
-      id.. {params.id} <br />
-      .name {params.name}
+      <div className="self-center text-xl font-semibold whitespace-nowrap dark:text-white pb-[2rem]">
+        Customer Detail for #{params.id}
+      </div>
+      <div className="pb-[2rem]"> Full Name: ----</div>
       <Link to="/">
         <button
           type="button"

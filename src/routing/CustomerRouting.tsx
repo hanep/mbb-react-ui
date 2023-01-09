@@ -7,7 +7,7 @@ const Main = () => {
     <Routes>
       <Route path="/" element={<CustomerList />} />
       <Route path="/add" element={<CreateCustomer />} />
-      <Route path="/detail/:id/:name" element={<CustomerDetail />} />
+      <Route path="/detail/:id" element={<CustomerDetail />} />
     </Routes>
   );
 };

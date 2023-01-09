@@ -7,15 +7,17 @@ export default function App() {
   return (
     <>
       <Header />
-      <div className="flex">
-        <div className=" w-60 bg-gray-200 h-96">
-          <NavigationBar />
-        </div>
-        <div className="flex flex-1 bg-blue-50">
-          <CustomerRouting />
+
+      <div className="bg-white border-gray-200 px-4 lg:px-6  dark:bg-gray-800">
+        <div className="flex">
+          <div className="w-80 border-r-[1px] py-[2rem]">
+            <NavigationBar />
+          </div>
+          <div className="w-full p-[2rem]">
+            <CustomerRouting />
+          </div>
         </div>
       </div>
-
       <Footer />
     </>
   );
