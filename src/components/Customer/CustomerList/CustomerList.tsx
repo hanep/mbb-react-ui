@@ -1,6 +1,7 @@
+import axios from "axios";
 import React from "react";
 import { CustomerItem } from "./CustomerItem";
-import { mockCustomerList } from "../../../services/mockData";
+import { baseURL } from "../../../services/customerApi";
 
 export type customer = {
   id: string;
@@ -8,7 +9,18 @@ export type customer = {
 };
 
 export const CustomerList = () => {
-  const { customers } = mockCustomerList;
+  const [customers, setCustomers] = React.useState<any[]>([]);
+
+  React.useEffect(() => {
+    callCustomerList();
+  }, []);
+
+  const callCustomerList = async () => {
+    // To later move API calls into services/customerApi
+    await axios.get(baseURL + "/customer").then((response) => {
+      setCustomers(response.data);
+    });
+  };
 
   return (
     <>

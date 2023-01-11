@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { baseURL } from "../../../services/customerApi";
 
 export const CreateCustomer = () => {
   const [fullName, setFullName] = useState("");
@@ -8,13 +10,19 @@ export const CreateCustomer = () => {
     return fullName ? queryCreateCustomer() : alert("Please key in the field");
   };
 
-  const queryCreateCustomer = () => {
+  const queryCreateCustomer = async () => {
     try {
-      console.log("submit to API", fullName);
+      await createCustomer();
       redirectCustomers();
     } catch (err) {
       throw err;
     }
+  };
+
+  // To later move API calls into services/customerApi
+  const createCustomer = async () => {
+    const response = await axios.post(baseURL + "/customer", { name: fullName });
+    return response.data;
   };
 
   const redirectCustomers = () => {
